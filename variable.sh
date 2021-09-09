@@ -48,3 +48,6 @@ echo myself $NAME
  fi
  fi
  echo "Your age : $yyy years $mmm months $ddd days"
+
+
+ echo -e"\1m35mHAMEEDUDDIN \1m32m miss u \0m"
