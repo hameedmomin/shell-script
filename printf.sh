@@ -22,6 +22,6 @@ echo -e "\e[31mMOMIN"
 echo -e "\e33mHAMEEDUDDIN\e[0mGood boy"
 
 # in the above the mistake im making is bracket im missing and colour code
- echo -e"\e[35mShould rectify our mistake\e[0m"
+ echo -e "\e[35mShould rectify our mistake\e[0m"
 
 
