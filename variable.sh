@@ -50,4 +50,4 @@ echo myself $NAME
  echo "Your age : $yyy years $mmm months $ddd days"
 
 
- echo -e"\1m35mHAMEEDUDDIN \1m32m miss u \0m"
+ echo -e "\e[1m35mHAMEEDUDDIN \e[1m32mmiss u \0m"
