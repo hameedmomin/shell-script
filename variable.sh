@@ -9,4 +9,9 @@ echo course name =$COURSE
 
 # list of  students
  echo List of students
-   List=$Display names
+
+ # we writing new variable method
+
+ echo Date=09.09.2021
+
+ echo Todays date=$date
