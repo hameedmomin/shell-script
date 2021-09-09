@@ -18,4 +18,4 @@ echo course name =$COURSE
 
 NAME=HAMEEDUDDIN
 
-echo myself = $NAME
+echo myself $NAME
