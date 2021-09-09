@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 #basically i just intoduced my self
 

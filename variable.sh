@@ -16,8 +16,3 @@ echo course name =$COURSE
  echo Good Morning, Today date is $DATE
 
 
-NAME=HAMEEDUDDIN
-
-echo myself $NAME
-
- echo -e'\[32mgood thing'
