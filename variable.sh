@@ -12,6 +12,6 @@ echo course name =$COURSE
 
  # we writing new variable method
 
- echo Date=09.09.2021
+ echo Date = 09.09.2021
 
  echo Todays date is $Date
