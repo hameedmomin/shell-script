@@ -14,4 +14,4 @@ echo course name =$COURSE
 
  echo Date=09.09.2021
 
- echo Todays date=$date
+ echo Todays date=$Date
