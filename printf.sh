@@ -27,3 +27,5 @@ echo -e "\e[33mHAMEEDUDDIN\e[0mGood boy"
   echo -e "\e[35meverytime learn the code easily \e[0mwe should b consious"
 
 echo -e "\e[35meverytime learn the code easily \e[31mwe should b consious. \e[0m"
+
+echo -e '\e[33mgood \e[0m'
