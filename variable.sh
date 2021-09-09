@@ -15,6 +15,6 @@ echo course name =$COURSE
  DATE=$(date +%F)
  echo Good Morning, Today date is $DATE
 
- echo subtration=$((100-50/5))
+ echo subtration=$((100-50))
 
  echo $subtration
