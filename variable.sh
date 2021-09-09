@@ -16,6 +16,6 @@ echo course name =$COURSE
  echo Good Morning, Today date is $DATE
 
 
-NAME = M HAMEEDUDDIN
+NAME = HAMEEDUDDIN
 
-echo myself $NAME
+echo myself = $NAME
