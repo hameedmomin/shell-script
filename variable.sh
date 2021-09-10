@@ -19,5 +19,5 @@ echo course name =$COURSE
 
  echo $subtration
 
- echo -e "\[31mHow are you all[\0m"
+ echo -e "\e[31mHow are you all[\0m"
 
