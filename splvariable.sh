@@ -7,6 +7,4 @@ echo $0
 
 # first argumenst
 
-100
-
-$1
+echo $1
