@@ -2,7 +2,7 @@
 
 # their are spl variables which are used
 
-$0
+echo $0
 # their are so many spl variables
 
 # first argumenst
