@@ -10,4 +10,6 @@ echo $0
 echo $1
 echo $2
 
-echo $* $#
+##we can access all arguments with the below one.
+
+echo $* $# #@

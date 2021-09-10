@@ -21,3 +21,8 @@ echo course name =$COURSE
 
  echo -e "\e[31mHow are you all\e[0m"
 
+ ## still they are so many variable in the evn command is used to display all the given variable
+ ## "export is also one command is used to bind the relation btwn command line and script.
+
+
+
