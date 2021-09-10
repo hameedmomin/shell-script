@@ -8,3 +8,4 @@ echo $0
 # first argumenst
 
 echo $1
+echo $2
