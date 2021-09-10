@@ -18,3 +18,6 @@ echo course name =$COURSE
  echo subtration=$((100-50))
 
  echo $subtration
+
+ echo -e "\[31mHow are you all[\0m"
+
