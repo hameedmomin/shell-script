@@ -4,5 +4,5 @@ coffee:
 preparation:
 	@echo Make soda
 
-hair colour:
+haircolour:
 	@echo take dye and mixup with water and apply to to hairs
