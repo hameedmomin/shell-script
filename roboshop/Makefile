@@ -4,30 +4,30 @@ help:	##Print Help Messages
 frontend:	##Install Frontend component
 	@sh components/frontend.sh
 
-catalogue:	##Install Catalogue component
+catalogue:		##Install Catalogue component
 	@sh components/catalouge.sh
 
-cart:	##Install Cart component
+cart:			##Install Cart component
 	@sh components/cart.sh
 
-redis:	##Install Redis component
+redis:				##Install Redis component
 	@sh components/redis.sh
 
-rabitmq:	##Install Rabitmq component
+rabitmq:		##Install Rabitmq component
 	@sh components/rabitmq.sh
 
-mysql:	##Install MySQL component
+mysql:			##Install MySQL component
 	@sh components/mysql.sh
 
-shipping:	##Install Shipping component
+shipping:		##Install Shipping component
 	@sh components/shipping.sh
 
-user:	##Install User component
+user:			##Install User component
 	@sh components/user.sh
 
-payment:	##Install Payment component
+payment:		##Install Payment component
 	@sh components/payment.sh
 
-mongod:	##Install MongoDB component
+mongod:			##Install MongoDB component
 	@sh components/mongodn.sh
 
