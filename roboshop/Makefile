@@ -1,7 +1,7 @@
 help:	##Print Help Messages
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 
-frontend:	##Install Frontend component
+frontend:		##Install Frontend component
 	@sh components/frontend.sh
 
 catalogue:		##Install Catalogue component
@@ -10,7 +10,7 @@ catalogue:		##Install Catalogue component
 cart:			##Install Cart component
 	@sh components/cart.sh
 
-redis:				##Install Redis component
+redis:			##Install Redis component
 	@sh components/redis.sh
 
 rabitmq:		##Install Rabitmq component
