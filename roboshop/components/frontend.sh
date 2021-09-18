@@ -3,12 +3,12 @@
 source components/common.sh
 rm -f &>>/tmp/roboshop.log
 
-HEAD "Installing Nginx"
+HEAD "Installing Nginx \t"
 yum install nginx -y  &>>/tmp/roboshop.log
 
 STAT $?
 
-HEAD "Start Nginx"
+HEAD "Start Nginx \t\t"
 systemctl start nginx
 systemctl enable nginx
 STAT $?
