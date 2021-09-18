@@ -5,7 +5,6 @@ STAT() {
   if [ $1 -eq 0 ]; then
     echo -e "\e[1;32mDone"
   else
-    echo -e"\e[1;31mFail"
+    echo -e "\e[1;31mFail"
   fi
-
 }
