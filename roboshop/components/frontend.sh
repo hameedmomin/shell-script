@@ -27,6 +27,6 @@ mv /usr/share/nginx/html/frontend-main/* /usr/share/nginx/html/. &>>/tmp/robosho
 mv  /usr/share/nginx/html/static/* /usr/share/nginx/html/.  &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Upadate Nginx \t"
+HEAD "Upadate Nginx \t\t"
 mv /usr/share/nginx/html/localhost.conf /etc/nginx/default.d/roboshop.conf
 STAT $?
