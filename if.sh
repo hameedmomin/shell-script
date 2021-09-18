@@ -4,6 +4,7 @@
 read -p 'Enter username : ' username
 
 if [ "$username" == "root" ] ; then
-  echo -e "User is a Admin"
+  echo -e "$username is a Admin"
 else
-  echo -e "User is normal user"
+  echo -e "$username is normal "
+fi
