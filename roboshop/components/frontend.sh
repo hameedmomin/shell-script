@@ -29,4 +29,4 @@ STAT $?
 
 HEAD "Upadate Nginx \t"
 mv /usr/share/nginx/html/localhost.conf /etc/nginx/default.d/roboshop.conf
-STAT &?
+STAT $?
