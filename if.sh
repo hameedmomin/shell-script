@@ -9,7 +9,7 @@ else
   echo -e "hey user is $username is normal "
 fi
 
-read -p 'File exist'
+read -p 'File exist :'
 
 if [ -f "$filename" ] ; then
 
