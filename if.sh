@@ -17,3 +17,7 @@ if [ -f "$filename" ] ; then
 else
   echo "file doesnot exist"
 fi
+
+## NOTE: always use Quotes in varibles inside Expressions
+
+
