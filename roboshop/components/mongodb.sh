@@ -33,11 +33,13 @@ STAT $?
 
 HEAD "Uzipping files"
 cd /tmp
+
 unzip -o mongodb.zip &>>/tmp/robosho.log
 
 STAT $?
 
 HEAD "Remaining file"
 cd mongodb-main
+
 mongo < catalogue.js && mongo < users.js &>>/tmp/robosho.log
 STAT &?
