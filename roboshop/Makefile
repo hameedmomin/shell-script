@@ -28,6 +28,6 @@ user:			##Install User component
 payment:		##Install Payment component
 	@sh components/payment.sh
 
-mongodb:			##Install MongoDB component
+mongod:			##Install MongoDB component
 	@sh components/mongodb.sh
 
