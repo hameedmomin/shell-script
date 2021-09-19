@@ -29,5 +29,5 @@ payment:		##Install Payment component
 	@sh components/payment.sh
 
 mongod:			##Install MongoDB component
-	@sh components/mongodn.sh
+	@sh components/mongodb.sh
 
