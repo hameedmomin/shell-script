@@ -32,6 +32,7 @@ curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongo
 STAT $?
 
 HEAD "Uzipping files"
+
 cd /tmp
 
 unzip -o mongodb.zip &>>/tmp/robosho.log
