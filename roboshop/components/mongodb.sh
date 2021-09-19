@@ -16,10 +16,6 @@ HEAD "Installing MongoDB service"
 yum install -y mongodb-org &>>/tmp/robosho.log
 STAT $?
 
-HEAD "Starting MongoDB"
-systemctl enable mongod &>>/tmp/robosho.log
-systemctl start mongod &>>/tmp/robosho.log
-STAT $?
 
 HEAD "Updating IP address"
 sed -i -e 'c/127.0.0.1/0.0.0.0' /etc/mongod.conf
@@ -32,14 +28,15 @@ STAT $?
 
 HEAD "Downloading Schema"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
-cd /tmp
 STAT $?
 
 HEAD "Uzipping files"
+cd /tmp
 unzip mongodb.zip &>>/tmp/robosho.log
-cd mongodb-main
+
 STAT $?
 
 HEAD "Remaining file"
+cd mongodb-main
 mongo < catalogue.js && mongo < users.js
 STAT &?
