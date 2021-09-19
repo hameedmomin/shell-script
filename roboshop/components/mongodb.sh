@@ -33,7 +33,7 @@ STAT $?
 
 HEAD "Uzipping files"
 cd /tmp
-unzip -o  mongodb.zip &>>/tmp/robosho.log
+unzip -o mongodb.zip &>>/tmp/robosho.log
 
 STAT $?
 
