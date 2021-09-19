@@ -17,7 +17,7 @@ yum install -y mongodb-org &>>/tmp/robosho.log
 STAT $?
 
 HEAD "Updating IP address"
-sed -e 's/127.0.0.1/0.0.0.0' /etc/mongod.conf
+sed -i -e 's/127.0.0.1/0.0.0.0' /etc/mongod.conf
 STAT $?
 
 HEAD "Starting MongoDB"
