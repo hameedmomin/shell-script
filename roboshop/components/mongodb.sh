@@ -22,7 +22,7 @@ STAT $?
 
 HEAD "Starting MongoDB"
 systemctl enable mongod &>>/tmp/robosho.log
-systemctl start mongod &>>/tmp/robosho.log
+systemctl restart mongod &>>/tmp/robosho.log
 STAT $?
 
 HEAD "Downloading Schema"
@@ -31,7 +31,7 @@ cd /tmp
 STAT $?
 
 HEAD "Uzipping files"
-unzip mongodb.zip
+unzip mongodb.zip &>>/tmp/robosho.log
 cd mongodb-main
 STAT $?
 
