@@ -11,7 +11,7 @@ STAT $?
 HEAD "Adding User \t"
 id roboshop &>>/tmp/roboshop.log
 
-if [ $1 -eq 0 ] ; then
+if [ $? -eq  0 ] ; then
   echo User already exist &>>/tmp/roboshop.log
   STAT $?
 else
