@@ -17,17 +17,17 @@ yum install -y mongodb-org &>>/tmp/robosho.log
 STAT $?
 
 
-HEAD "Updating IP address \t\t"
+HEAD "Updating IP address \t"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 STAT $?
 
-HEAD "Starting MongoDB \t\t"
+HEAD "Starting MongoDB \t"
 systemctl enable mongod &>>/tmp/robosho.log
 systemctl restart mongod &>>/tmp/robosho.log
 
 STAT $?
 
-HEAD "Downloading Schema \t\t"
+HEAD "Downloading Schema \t"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
 STAT $?
 
@@ -37,7 +37,7 @@ unzip -o mongodb.zip &>>/tmp/robosho.log
 
 STAT $?
 
-HEAD "Loading Schema \t\t"
+HEAD "Loading Schema \t"
 cd mongodb-main
 
 mongo < catalogue.js &>>/tmp/robosho.log && mongo < users.js &>>/tmp/robosho.log
