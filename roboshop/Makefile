@@ -5,7 +5,7 @@ frontend:		##Install Frontend component
 	@sh components/frontend.sh
 
 catalogue:		##Install Catalogue component
-	@sh components/catalouge.sh
+	@sh components/catalogue.sh
 
 cart:			##Install Cart component
 	@sh components/cart.sh
