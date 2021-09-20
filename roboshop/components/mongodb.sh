@@ -42,6 +42,6 @@ cd mongodb-main
 
 mongo < catalogue.js &>>/tmp/robosho.log && mongo < users.js &>>/tmp/robosho.log
 
-STAT &?
+STAT $?
 
 
