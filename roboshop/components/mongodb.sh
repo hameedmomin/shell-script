@@ -31,3 +31,15 @@ HEAD "Downloading Schema"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
 STAT $?
 
+HEAD "unzipping files"
+cd /tmp
+unzip mongodb.zip &>>/tmp/robosho.log
+
+STAT $?
+
+HEAD "Remaining file"
+cd mongodb-main
+
+mongo < catalogue.js && mongo < users.js &>>/tmp/robosho.log
+STAT &?
+
