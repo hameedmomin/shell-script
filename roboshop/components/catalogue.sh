@@ -9,8 +9,14 @@ yum install nodejs make css-c++ -y &>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Adding User \t"
-useradd -u -o roboshop &>>/tmp/roboshop.log
-STAT $?
+id roboshop &>>/tmp/roboshop.log
+
+if [ $1 -eq 0 ] ; then
+  echo User already exist &>>/tmp/roboshop.log
+  STAT $?
+else
+  useradd  roboshop &>>/tmp/roboshop.log
+fi
 
 HEAD "Download from GITHUB"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>/tmp/roboshop.log
@@ -21,5 +27,5 @@ cd /home/roboshop &>>/tmp/roboshop.log && unzip /tmp/catalogue.zip &>>/tmp/robos
 STAT $?
 
 HEAD "Installing Nodejs Files "
-cd /home/roboshop/catalogue && npm install &>>/tmp/roboshop.log
+cd /home/roboshop/catalogue && npm install  --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
