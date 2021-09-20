@@ -21,3 +21,5 @@ cd /home/roboshop &>>/tmp/roboshop.log && unzip /tmp/catalogue.zip &>>/tmp/robos
 STAT $?
 
 HEAD "Installing Nodejs Files "
+cd /home/roboshop/catalogue && npm install &>>/tmp/roboshop.log
+STAT $?
