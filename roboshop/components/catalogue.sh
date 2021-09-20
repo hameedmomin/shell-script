@@ -9,7 +9,7 @@ yum install nodejs make css-c++ -y &>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Adding User \t"
-useradd -o -U roboshop &>>/tmp/roboshop.log
+useradd -u -o roboshop &>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Download from GITHUB"
