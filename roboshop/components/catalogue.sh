@@ -29,3 +29,17 @@ STAT $?
 HEAD "Installing Nodejs Files "
 cd /home/roboshop/catalogue && npm install  --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
+
+HEAD "Fix Premission to app content"
+chown roboshop:roboshop /home/roboshop -R
+STAT $?
+
+
+GITHUB "Setup SystemD service"
+sed -e 's/MONGO_DNSNAME/mongodb.internal.ip/' /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+STAT $?
+
+HEAD "Start Catalogue service"
+systemctl daemon-reload && systemctl enable catalogue &>>/tmp/roboshop.log && systemctl restart catalogue &>>/tmp/roboshop.log
+STAT $?
+
