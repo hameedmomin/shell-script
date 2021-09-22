@@ -27,7 +27,7 @@ if [ "${INSTANCE_STATE}" = "running" ]; then
   return 0
 fi
 if [ "${INSTANCE_STATE}" = "stopped" ]; then
-  echo "${COMPONENT} Instancec already exit"
+  echo "${COMPONENT} Instance already exit"
   retrun 0
 fi
 
