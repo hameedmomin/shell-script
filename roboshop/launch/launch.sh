@@ -14,7 +14,7 @@ LVER=1
 
 #validate if instance is already there
 
-INSTANCE_CREATE(){
+INSTANCE_CREATE()
 
 INSTANCE_STATE=$(aws ec2 describe-instance --filters "Name=tag:Name,Values=${COMPONENT}" | jq.Reservations[].Instance[].State.Name | xargs -n1)
 
@@ -35,5 +35,4 @@ if [ "${INSTANCE_STATE}" = "stopped" ]; then
   retrun 0
 fi
 
-}
 
