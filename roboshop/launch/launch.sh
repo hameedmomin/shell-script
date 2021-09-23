@@ -34,5 +34,5 @@ INSTANCE_CREATE(){
     echo "${COMPONENT} Instance already exit"
     retrun 0
   fi
-  }
+}
 
