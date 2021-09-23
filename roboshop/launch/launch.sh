@@ -13,8 +13,7 @@ LID=lt-0b970bef7d9f13f52
 LVER=1
 
 #validate if instance is already their
-INSTANCE_CREATE()
-{
+INSTANCE_CREATE() {
 
 INSTANCE_STATE=$(aws ec2 describe-instance --filters "Name=tag:Name,Values=${COMPONENT}" | jq.Reservations[].Instance[].State.Name | xargs -n1)
 
@@ -33,10 +32,10 @@ fi
   aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=${COMPONENT}}]" | jq | grep  PrivateIpAddress  |xargs -n1
   sleep 30
   DNS_UPDATE
-}
 
-DNS_UPDATE()
-{
+  }
+
+DNS_UPDATE() {
 
   PRIVATEIP=$(aws ec2 describe-instance --filters "Name=tag:Name,Values=${COMPONENT}" | jq.Reservations[].Instance[].PrivateIpAddress | xargs -n1)
   sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IPADDRESS}/" record.json >/tmp/record.json
