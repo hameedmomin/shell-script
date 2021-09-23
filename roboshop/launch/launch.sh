@@ -24,15 +24,15 @@ INSTANCE_CREATE(){
   sleep 30
 
   DNS_UPDATE
-if [ "${INSTANCE_STATE}" = "running" ]; then
-  echo "Instance already exist"
-  DNS_UPDATE
-  return 0
-fi
+  if [ "${INSTANCE_STATE}" = "running" ]; then
+    echo "Instance already exist"
+    DNS_UPDATE
+    return 0
+  fi
 
-if [ "${INSTANCE_STATE}" = "stopped" ]; then
-  echo "${COMPONENT} Instance already exit"
-  retrun 0
-fi
+  if [ "${INSTANCE_STATE}" = "stopped" ]; then
+    echo "${COMPONENT} Instance already exit"
+    retrun 0
+  fi
   }
 
