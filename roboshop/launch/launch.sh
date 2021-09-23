@@ -22,8 +22,8 @@ echo -n Instance ${COMPONENT} created - IPADDRESS IS
 
 aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=${COMPONENT}}]" | jq | grep  PrivateIpAddress  |xargs -n1
 sleep 30
+
 DNS_UPDATE
-  }
 if [ "${INSTANCE_STATE}" = "running" ]; then
   echo "Instance already exist"
   DNS_UPDATE
@@ -34,5 +34,5 @@ if [ "${INSTANCE_STATE}" = "stopped" ]; then
   echo "${COMPONENT} Instance already exit"
   retrun 0
 fi
-
+  }
 
