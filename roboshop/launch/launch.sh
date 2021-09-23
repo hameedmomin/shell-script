@@ -12,7 +12,7 @@ fi
 LID=lt-0b970bef7d9f13f52
 LVER=1
 
-#validate if instance is already their
+#validate if instance is already there
 INSTANCE_CREATE(){
 
 INSTANCE_STATE=$(aws ec2 describe-instance --filters "Name=tag:Name,Values=${COMPONENT}" | jq.Reservations[].Instance[].State.Name | xargs -n1)
