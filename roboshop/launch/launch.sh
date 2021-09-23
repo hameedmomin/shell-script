@@ -17,6 +17,12 @@ INSTANCE_CREATE(){
 
 INSTANCE_STATE=$(aws ec2 describe-instance --filters "Name=tag:Name,Values=${COMPONENT}" | jq.Reservations[].Instance[].State.Name | xargs -n1)
 
+echo -n Instance ${COMPONENT} created - IPADDRESS IS
+
+aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=${COMPONENT}}]" | jq | grep  PrivateIpAddress  |xargs -n1
+sleep 30
+DNS_UPDATE
+
 if [ "${INSTANCE_STATE}" = "running" ]; then
   echo "Instance already exist"
   DNS_UPDATE
@@ -28,9 +34,5 @@ if [ "${INSTANCE_STATE}" = "stopped" ]; then
   retrun 0
 fi
 
-echo -n Instance ${COMPONENT} created - IPADDRESS IS
-aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=${COMPONENT}}]" | jq | grep  PrivateIpAddress  |xargs -n1
-sleep 30
-DNS_UPDATE
 }
 
