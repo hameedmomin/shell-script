@@ -35,6 +35,7 @@ echo -n Instance ${COMPONENT} created - IPADDRESS IS
 }
 
 DNS_UPDATE(){
+
   PRIVATEIP=$(aws ec2 describe-instance --filters "Name=tag:Name,Values=${COMPONENT}" | jq.Reservations[].Instance[].PrivateIpAddress | xargs -n1)
   sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IPADDRESS}/" record.json >/tmp/record.json
   aws route53 change-resource-record-sets --hosted-zone-id Z07567143CWQBG84ZKWAY --change-batch file:///tmp/record.json |jq
