@@ -20,18 +20,21 @@ DNS_UPDATE() {
   aws route53 change-resource-record-sets --hosted-zone-id Z0030742HZD6U31Q306U --change-batch file:///tmp/record.json | jq
 }
 
-INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].State.Name | xargs -n1)
+INSTANCE_CREATE() {
+  INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].State.Name | xargs -n1)
 
-if [ "${INSTANCE_STATE}" = "running" ]; then
+  if [ "${INSTANCE_STATE}" = "running" ]; then
   echo "${COMPONENT} Instance already exist"
   DNS_UPDATE
   exit 0
-fi
+  fi
 
-if [ "${INSTANCE_STATE}" = "stopped" ]; then
+  if [ "${INSTANCE_STATE}" = "stopped" ]; then
   echo "${COMPONENT} Instance already exit"
   exit 0
-fi
+  fi
 
-aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=${COMPONENT}}]" | jq
-sleep 30
+  echo -n Instance ${COMPONENT} created - IPADDRESS is
+  aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=${COMPONENT}}]" | jq
+  sleep 30
+}
