@@ -6,6 +6,6 @@
       "Name": "COMPONENT.internal-ip",
       "Type": "A",
       "TTL": 300,
-      "ResourceRecords": [{ "Value": "IPADDRESS"}]
+      "ResourceRecords": [{ "Value": "IPADDRESS" }]
     }}]
 }
