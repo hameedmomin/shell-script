@@ -30,6 +30,7 @@ fi
 
 if [ "${INSTANCE_STATE}" = "stopped" ]; then
   echo "${COMPONENT} Instance already exit"
+  DNS_UPDATE
   exit 0
 fi
 
