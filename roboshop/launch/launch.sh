@@ -27,5 +27,4 @@ if [ "${INSTANCE_STATE}" = "stopped" ]; then
   retrun 0
 fi
 
-echo -n Instance created - IPADDRESS IS
 aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=${COMPONENT}}]" | jq | grep  PrivateIpAddress  | xargs -n1
