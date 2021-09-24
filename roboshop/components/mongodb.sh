@@ -2,6 +2,7 @@
 
 source components/common.sh
 rm -f tmp/robosho.log
+set-hostname mongodb
 
 HEAD "Setting up Repo files \t"
 echo '[mongodb-org-4.2]

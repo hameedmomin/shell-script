@@ -2,6 +2,7 @@
 
 source components/common.sh
 rm -f tmp/robosho.log
+set-hostname catalogue
 
 HEAD "Installing Nodejs"
 yum install nodejs make css-c++ -y &>>/tmp/roboshop.log
@@ -16,6 +17,7 @@ if [ $? -eq  0 ] ; then
   STAT $?
 else
   useradd  roboshop &>>/tmp/roboshop.log
+  STAT $?
 fi
 
 HEAD "Download from GITHUB"
@@ -35,8 +37,8 @@ chown roboshop:roboshop /home/roboshop -R
 STAT $?
 
 
-GITHUB "Setup SystemD service"
-sed -e 's/MONGO_DNSNAME/mongodb.internal.ip/' /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+HEAD "Setup sysytemD Service"
+sed -e 's/MONGO_DNSNAME/mongodb.internal-ip/' /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 STAT $?
 
 HEAD "Start Catalogue service"
