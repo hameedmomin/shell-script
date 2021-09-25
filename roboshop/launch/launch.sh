@@ -22,7 +22,7 @@ if [ "${INSTANCE_STATE}" = "running" ]; then
 fi
 
 if [ "${INSTANCE_STATE}" = "stopped" ]; then
-  echo "Instance already exists"
+  echo "Instance already exists!!"
   exit 0
 fi
 
