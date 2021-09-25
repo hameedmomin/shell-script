@@ -17,12 +17,12 @@ LVER=1
 INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].State.Name | xargs -n1)
 
 if [ "${INSTANCE_STATE}" = "running" ]; then
-  echo "Instance already exist"
+  echo "Instance already exists"
   exit 0
 fi
 
 if [ "${INSTANCE_STATE}" = "stopped" ]; then
-  echo "Instance already exit"
+  echo "Instance already exists"
   exit 0
 fi
 
