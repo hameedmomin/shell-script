@@ -17,8 +17,7 @@ LVER=1
 INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].State.Name | xargs -n1)
 
 if [ "${INSTANCE_STATE}" = "running" ]; then
-  echo "${COMPONENT} Instance already exist"
-  DNS_UPDATE
+  echo "Instance already exist"
   exit 0
 fi
 
@@ -27,7 +26,7 @@ if [ "${INSTANCE_STATE}" = "stopped" ]; then
   exit 0
 fi
 
-aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=${COMPONENT}}]" | jq
+aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq
 sleep 30
 PRIVATEIP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].PrivateIpAddress | xargs -n1)
 sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${PRIVATEIP}/" record.json >/tmp/record.json
