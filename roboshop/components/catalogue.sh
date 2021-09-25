@@ -2,7 +2,7 @@
 
 source components/common.sh
 rm -f tmp/robosho.log
-set-hostname catalogue
+
 
 HEAD "Installing Nodejs"
 yum install nodejs make css-c++ -y &>>/tmp/roboshop.log
@@ -45,3 +45,4 @@ HEAD "Start Catalogue service"
 systemctl daemon-reload && systemctl enable catalogue &>>/tmp/roboshop.log && systemctl restart catalogue &>>/tmp/roboshop.log
 STAT $?
 
+set-hostname catalogue
