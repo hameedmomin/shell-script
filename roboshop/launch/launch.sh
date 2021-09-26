@@ -14,18 +14,19 @@ LVER=1
 
 ## Validating the instance is already there
 
-INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].State.Name | xargs -n1)
+INSTANCE_STATE() {
+  INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].State.Name | xargs -n1)
 
-if [ "${INSTANCE_STATE}" = "running" ]; then
-  echo "Instance already exists"
-  exit 0
-fi
+  if [ "${INSTANCE_STATE}" = "running" ]; then
+    echo "Instance already exists"
+    exit 0
+  fi
 
-if [ "${INSTANCE_STATE}" = "stopped" ]; then
-  echo "Instance already exists!!"
-  exit 0
-fi
-
+  if [ "${INSTANCE_STATE}" = "stopped" ]; then
+    echo "Instance already exists!!"
+    exit 0
+  fi
+}
 aws ec2 run-instances --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq
 sleep 30
 PRIVATEIP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].PrivateIpAddress | xargs -n1)
