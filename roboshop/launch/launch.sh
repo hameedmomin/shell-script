@@ -33,4 +33,4 @@ sleep 30
 
 PRIVATEIP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].PrivateIpAddress | xargs -n1)
 sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${PRIVATEIP}/" record.json >/tmp/record.json
-aws route53 change-resource-record-sets --hosted-zone-id Z05483541JD3IOXLSP16I --change-batch file:///tmp/record.json | jq
+aws route53 change-resource-record-sets --hosted-zone-id Z05483541JD3IOXLSP16I --change-batch file:///tmp/record.json
