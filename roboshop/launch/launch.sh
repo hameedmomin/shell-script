@@ -14,7 +14,7 @@ LVER=1
 
 ## Validating the instance is already there
 
-INSTANCE_STATE() {
+INSTANCE_CREATE() {
   INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instance[].State.Name | xargs -n1)
 
   if [ "${INSTANCE_STATE}" = "running" ]; then
