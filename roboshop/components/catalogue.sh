@@ -38,7 +38,7 @@ STAT $?
 
 
 HEAD "Setup sysytemD Service"
-sed -e 's/MONGO_DNSNAME/mongodb.connection.internal/' rm -f /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+sed -e 's/MONGO_DNSNAME/mongodb.connection.internal/' /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 STAT $?
 
 HEAD "Start Catalogue service"
