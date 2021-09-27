@@ -13,7 +13,7 @@ yum install redis -y &>>/tmp/robosho.log
 STAT $?
 
 HEAD "Update IP address"
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis..conf
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf
 
 HEAD"start Redis Service"
 systemctl enable redis &>>/tmp/robosho.log && systemctl restart redis &>>/tmp/robosho.log
