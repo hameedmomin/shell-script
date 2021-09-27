@@ -12,7 +12,7 @@ STAT $?
 HEAD "Adding User \t"
 id roboshop &>>/tmp/roboshop.log
 
-if [ $? -eq  0 ] ; then
+if [ $? -eq  0 ]; then
   echo User already exist &>>/tmp/roboshop.log
   STAT $?
 else
@@ -25,7 +25,7 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
 STAT $?
 
 HEAD "Extracting Flies \t"
-cd /home/roboshop &>>/tmp/roboshop.log  rm -f catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue &>>/tmp/roboshop.log
+cd /home/roboshop && rm -f catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue &>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Installing Nodejs Files "
