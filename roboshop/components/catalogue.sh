@@ -45,4 +45,4 @@ HEAD "Start Catalogue service"
 systemctl daemon-reload && systemctl enable catalogue &>>/tmp/roboshop.log && systemctl restart catalogue &>>/tmp/roboshop.log
 STAT $?
 
-set-hostname catalogue
+
