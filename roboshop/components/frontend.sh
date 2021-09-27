@@ -32,6 +32,5 @@ mv /usr/share/nginx/html/localhost.conf /etc/nginx/default.d/roboshop.conf
 STAT $?
 
 HEAD "Start Nginx \t\t"
-systemctl start nginx &>>/tmp/roboshop.log
-systemctl enable nginx &>>/tmp/roboshop.log
+systemctl start nginx &>>/tmp/roboshop.log && systemctl enable nginx &>>/tmp/roboshop.log
 STAT $?
