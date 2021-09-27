@@ -22,6 +22,15 @@ USER_ADD() {
     STAT $?
   fi
 }
+SETUP_SYSTEMD() {
+  HEAD "Setup sysytemD Service"
+  sed -i -e 's/MONGO_DNSNAME/mongodb.connection.internal/' -e 's/REDIS_ENDPOINT/redis.connection.internal/' -e 's/MONGO_ENDPOINT/mongodb.connection.internal/'  /home/roboshop/$1/systemd.service && mv /home/roboshop/$1/systemd.service /etc/systemd/system/$1.service
+  STAT $?
+
+  HEAD "Start $1 service"
+  systemctl daemon-reload && systemctl enable $1 &>>/tmp/roboshop.log && systemctl restart $1 &>>/tmp/roboshop.log
+  STAT $?
+}
 
 NODEJS() {
   HEAD "Installing Nodejs"
@@ -47,12 +56,5 @@ NODEJS() {
   chown roboshop:roboshop /home/roboshop -R
   STAT $?
 
-
-  HEAD "Setup sysytemD Service"
-  sed -i -e 's/MONGO_DNSNAME/mongodb.connection.internal/' /home/roboshop/$1/systemd.service && mv /home/roboshop/$1/systemd.service /etc/systemd/system/$1.service
-  STAT $?
-
-  HEAD "Start $1 service"
-  systemctl daemon-reload && systemctl enable $1 &>>/tmp/roboshop.log && systemctl restart $1 &>>/tmp/roboshop.log
-  STAT $?
+  SETUP_SYSTEMD "$1"
 }
