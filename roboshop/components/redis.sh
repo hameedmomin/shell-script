@@ -14,6 +14,7 @@ STAT $?
 
 HEAD "Update IP address"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf
+STAT $?
 
 HEAD"start Redis Service"
 systemctl enable redis &>>/tmp/robosho.log && systemctl restart redis &>>/tmp/robosho.log
