@@ -24,7 +24,7 @@ USER_ADD() {
 }
 SETUP_SYSTEMD() {
   HEAD "Setup sysytemD Service"
-  sed -i -e 's/MONGO_DNSNAME/mongodb.connection.internal/' -e 's/REDIS_ENDPOINT/redis.connection.internal/' -e 's/MONGO_ENDPOINT/mongodb.connection.internal/'  /home/roboshop/$1/systemd.service && mv /home/roboshop/$1/systemd.service /etc/systemd/system/$1.service
+  sed -i -e 's/MONGO_DNSNAME/mongodb.connection.internal/' -e 's/REDIS_ENDPOINT/redis.connection.internal/' -e 's/MONGO_ENDPOINT/mongodb.connection.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.connection.internal/'  /home/roboshop/$1/systemd.service && mv /home/roboshop/$1/systemd.service /etc/systemd/system/$1.service
   STAT $?
 
   HEAD "Start $1 service"
