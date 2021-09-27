@@ -58,3 +58,19 @@ NODEJS() {
 
   SETUP_SYSTEMD "$1"
 }
+
+MAVEN() {
+  HEAD "Install Maven"
+  yum install maven -y &>>/tmp/roboshop.log
+  STAT $?
+  APP_USER_ADD
+  DOWNLOAD_FROM_GITHUB $1
+
+  HEAD "Make Application Package"
+  cd /home/roboshop/$1 && mvn clean package &>> /tmp/roboshop.log && mv target/$1-1.0.jar $1.jar  &>>/tmp/roboshop.log
+  STAT $?
+
+  FIX_APP_CONENT_PERM
+
+  SETUP_SYSTEMD "$1"
+}
