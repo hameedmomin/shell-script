@@ -31,6 +31,14 @@ HEAD "Update Nginx \t\t"
 mv /usr/share/nginx/html/localhost.conf /etc/nginx/default.d/roboshop.conf
 STAT $?
 
+##in sed  /${component}/ s/localhost/${component} it will first search for the component chnage which line component exists then it will change plz be carefull while writing the sed command, first it will chnge
+
+HEAD "Update Endpoints in Nginx Config"
+for component in catalogue cart user shipping payment ; do
+  sed -i -e "/${component}/ s/localhost/${component}.connection.internal/" /etc/nginx/default.d/roboshop.conf
+done
+STAT $?
+
 HEAD "Start Nginx \t\t"
 systemctl start nginx &>>/tmp/roboshop.log && systemctl enable nginx &>>/tmp/roboshop.log
 STAT $?
