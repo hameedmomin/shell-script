@@ -9,7 +9,7 @@
 
 i=10
 while [ $i -gt 0 ]; do
-  echo -n $i
+  echo -n \t  $i
   i=$(($i-1))
 done
 
