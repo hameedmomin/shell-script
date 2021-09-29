@@ -41,7 +41,7 @@ INSTANCE_CREATE() {
 }
 
 if [ "${1}" == "all" ]; then
-  for component in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment ; do
+  for component in frontend mongodb catalogue redis user cart mysql shipping rabitmq payment ; do
     COMPONENT=$component
     INSTANCE_CREATE
   done
