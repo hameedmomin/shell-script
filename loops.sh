@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#there are two type of loops "while" and "for" loops
+#there are two type of an "while" and "for" an
 
 # Syntax
 # while [ expression ] ; do
