@@ -1,4 +1,5 @@
 #!/bin/bash
 
-ls
+#
+# ls
 cat /etc/passwrd
